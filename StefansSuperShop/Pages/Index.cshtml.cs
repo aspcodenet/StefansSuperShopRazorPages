@@ -9,7 +9,7 @@ using StefansSuperShop.Data;
 
 namespace StefansSuperShop.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly ApplicationDbContext _context;

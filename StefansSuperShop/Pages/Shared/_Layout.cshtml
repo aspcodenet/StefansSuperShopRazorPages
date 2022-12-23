@@ -1,4 +1,4 @@
-﻿
+﻿@model BasePageModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,7 +160,9 @@
         <!-- /container -->
     </div>
     <!-- /SECTION -->
-    <!-- NEWSLETTER -->
+<!-- NEWSLETTER -->
+@if (Model.IsAlreadySubscriber == false)
+{
     <div id="newsletter" class="section">
         <!-- container -->
         <div class="container">
@@ -169,9 +171,10 @@
                 <div class="col-md-12">
                     <div class="newsletter">
                         <p>Sign Up for the <strong>NEWSLETTER</strong></p>
-                        <form>
-                            <input class="input" type="email" placeholder="Enter Your Email">
-                            <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                        <form method="post" action="/Subsribe">
+                            <input name="epost" class="input" type="email" placeholder="Enter Your Email">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
                         </form>
                         <ul class="newsletter-follow">
                             <li>
@@ -195,6 +198,7 @@
         <!-- /container -->
     </div>
     <!-- /NEWSLETTER -->
+}
     <!-- FOOTER -->
     <footer id="footer">
         <!-- top footer -->
